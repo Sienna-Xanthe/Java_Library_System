@@ -1,6 +1,7 @@
 package cn.library.jdbctemplate;
 
 import cn.library.book.Book;
+import cn.library.dao.BookDao;
 import cn.library.student.Logquanbu;
 import cn.library.student.Logs;
 import cn.utils.JDBCUtils;
@@ -146,6 +147,20 @@ public class JdbcTemplateDemo1 {
                 System.out.println(logquanbu);
             }
         }
+    }
+
+    @Test
+    public void testcahxun(){
+        Book chaxunbook = new Book();
+        chaxunbook.setBk_name("小王子");
+        BookDao dao = new BookDao();
+        List<Book> list = dao.chaxun(chaxunbook);
+        if(list != null){
+            for(Book book : list){
+                System.out.println(book);
+            }
+        }
+
     }
 
 

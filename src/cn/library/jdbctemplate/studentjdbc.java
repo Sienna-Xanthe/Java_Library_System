@@ -171,7 +171,7 @@ public class studentjdbc {
     /**
      * 书名模糊查询
      */
-    public void bknamechaxun(String bk_name)
+    public List<Book> bknamechaxun(String bk_name)
     {
         String ssql = "select count(id) from book where bk_name like CONCAT('%',?,'%')";
         Long total = template.queryForObject(ssql,Long.class,bk_name);
@@ -185,7 +185,9 @@ public class studentjdbc {
             for(Book book : list){
                 System.out.println(book);
             }
+            return list;
         }
+        return null;
     }
 
     /**
